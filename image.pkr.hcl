@@ -37,11 +37,14 @@ build {
 
   provisioner "shell" {
     script       = "scripts/install-ansible.sh"
+    environment_vars = [
+      "ansible_version=2.9",
+    ]
     pause_before = "10s"
     timeout      = "10s"
   }
 
-  provisioner "ansible" {
+  provisioner "ansible-local" {
     playbook_file = "./ansible/playbook-test.yaml"
     sftp_command  = "/usr/bin/false"
     use_sftp      = false
@@ -52,6 +55,9 @@ build {
   }
   provisioner "shell" {
     script       = "scripts/cleanup.sh"
+    environment_vars = [
+      "ansible_version=2.9",
+    ]
     pause_before = "10s"
     timeout      = "10s"
   }
