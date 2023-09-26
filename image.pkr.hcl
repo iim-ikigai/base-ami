@@ -36,7 +36,7 @@ build {
   }
 
   provisioner "ansible" {
-    playbook_file = "./ansible/playbook-test.yml"
+    playbook_file = "./ansible/playbook-test.yaml"
     sftp_command  = "/usr/bin/false"
     use_sftp      = false
   }
