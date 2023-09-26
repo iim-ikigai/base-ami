@@ -35,14 +35,6 @@ build {
     ]
   }
 
-  provisioner "shell" {
-    script       = "scripts/install-ansible.sh"
-    environment_vars = [
-      "ansible_version=2.9",
-    ]
-    pause_before = "10s"
-    timeout      = "10s"
-  }
 
   provisioner "ansible" {
     playbook_file = "./ansible/playbook-test.yaml"
@@ -54,13 +46,7 @@ build {
     inline = ["echo Running ${var.docker_image} Docker image."]
   }
   provisioner "shell" {
-    script       = "scripts/cleanup.sh"
-    environment_vars = [
-      "ansible_version=2.9",
-    ]
-    pause_before = "10s"
-    timeout      = "10s"
-  }
+ 
 
 
   post-processor "docker-tag" {
