@@ -8,17 +8,16 @@ packer {
     docker = {
       version = ">= 0.0.7"
       source  = "github.com/hashicorp/docker"
+    },
+    ansible = {
+      version = ">= 1.1.0"
+      source  = "github.com/hashicorp/ansible"
     }
   }
 }
 
 source "docker" "ubuntu" {
   image  = "ubuntu:xenial"
-  commit = true
-}
-
-source "docker" "ubuntu-bionic" {
-  image  = "ubuntu:bionic"
   commit = true
 }
 
@@ -39,6 +38,12 @@ build {
     ]
   }
 
+  provisioner "ansible" {
+    playbook_file = "./ansible/playbook-test.yml"
+    sftp_command  = "/usr/bin/false"
+    use_sftp      = false
+  }
+
   provisioner "shell" {
     inline = ["echo Running ${var.docker_image} Docker image."]
   }
@@ -50,10 +55,6 @@ build {
     only       = ["docker.ubuntu"]
   }
 
-  post-processor "docker-tag" {
-    repository = "learn-packer"
-    tags       = ["ubuntu-bionic", "packer-rocks"]
-    only       = ["docker.ubuntu-bionic"]
-  }
+
 
 }
