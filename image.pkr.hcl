@@ -39,7 +39,6 @@ build {
   provisioner "ansible" {
     playbook_file = "./ansible/playbook-test.yaml"
     sftp_command  = "/usr/bin/false"
-    ansible_python_interpreter=/usr/bin/python3
     use_sftp      = false
   }
 
