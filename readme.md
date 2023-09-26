@@ -1,0 +1,1 @@
+base image using packer and ansible
