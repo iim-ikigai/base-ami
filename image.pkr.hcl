@@ -44,7 +44,7 @@ build {
     timeout      = "10s"
   }
 
-  provisioner "ansible-local" {
+  provisioner "ansible" {
     playbook_file = "./ansible/playbook-test.yaml"
     sftp_command  = "/usr/bin/false"
     use_sftp      = false
