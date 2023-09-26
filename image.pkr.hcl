@@ -35,6 +35,12 @@ build {
     ]
   }
 
+  provisioner "shell" {
+    script       = "scripts/install-ansible.sh"
+    pause_before = "10s"
+    timeout      = "10s"
+  }
+
   provisioner "ansible" {
     playbook_file = "./ansible/playbook-test.yaml"
     sftp_command  = "/usr/bin/false"
@@ -43,6 +49,11 @@ build {
 
   provisioner "shell" {
     inline = ["echo Running ${var.docker_image} Docker image."]
+  }
+  provisioner "shell" {
+    script       = "scripts/cleanup.sh"
+    pause_before = "10s"
+    timeout      = "10s"
   }
 
 

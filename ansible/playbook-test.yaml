@@ -5,8 +5,6 @@
 - hosts: all
   gather_facts: no
   tasks:
-    - name: touch
-      raw: touch /tmp/ansible-raw-test
     - name: raw test
       raw: date
     - name: command test
