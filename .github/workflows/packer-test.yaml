@@ -27,3 +27,6 @@ jobs:
       - name: Run `packer validate`
         id: validate
         run: "packer validate ./image.pkr.hcl"
+      
+      - name: Build Artifact
+        run: packer build -color=false -on-error=abort ./image.pkr.hcl
