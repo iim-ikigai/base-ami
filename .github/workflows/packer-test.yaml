@@ -35,7 +35,7 @@ jobs:
       
       - name: Get Python Interpreter Path
         run: |
-          sed -e "s,PYTHON_INTERPRETER,${{ steps.cp310.outputs.python-path }},g" ansible/playbook-test.yaml | \
+          sed -e "s,PYTHON_INTERPRETER,${{ steps.cp310.outputs.python-path }},g" ansible/playbook-test.yaml 
       
       - name: Build Artifact
         run: packer build -color=false -on-error=abort ./image.pkr.hcl
