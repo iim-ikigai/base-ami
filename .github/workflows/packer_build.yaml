@@ -33,3 +33,16 @@ jobs:
           --group-id $AWS_SG_ID \
           --protocol tcp --port 22 \
           --cidr $ACTION_IP/32
+      - name: Setup packer
+        uses: hashicorp/setup-packer@main
+        id: setup
+        with:
+          version: ${{ env.PACKER_VERSION }}
+      - name: Packer Init
+        id: init
+        run: packer init ${{ env.PACKER_TEMPLATE }}
+      - name: Packer Validate
+        id: validate
+        run: packer validate -var-file=/tmp/packer-var.json ${{ env.PACKER_TEMPLATE }} 2>&1 | tee ${BUILD_LOG}
+      - name: Packer Build
+        run: packer build -color=false -on-error=abort -var-file=/tmp/packer-var.json ${{ env.PACKER_TEMPLATE }} 2>&1 | tee ${BUILD_LOG}
