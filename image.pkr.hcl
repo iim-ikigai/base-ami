@@ -25,8 +25,7 @@ source "docker" "ubuntu" {
 build {
   name = "learn-packer"
   sources = [
-    "source.docker.ubuntu",
-    "source.docker.ubuntu-bionic",
+    "source.docker.ubuntu"
   ]
   provisioner "shell" {
     environment_vars = [
