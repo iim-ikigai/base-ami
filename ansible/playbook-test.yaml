@@ -7,9 +7,9 @@
   tasks:
     - name: raw test
       vars:
-        ansible_python_interpreter: python3
+        ansible_python_interpreter: python
       raw: date
     - name: command test
       vars:
-        ansible_python_interpreter: python3
+        ansible_python_interpreter: python
       command: echo "the command module"
