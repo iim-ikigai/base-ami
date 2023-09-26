@@ -1,0 +1,8 @@
+---
+- name: Install other packages
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - "build-essential"
+    - "awscli"

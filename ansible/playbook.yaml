@@ -1,0 +1,14 @@
+- hosts: all
+  gather_facts: true    
+  become: yes
+  vars:
+    ansible_python_interpreter: "/usr/bin/env python3"
+    system_is_ec2: true
+    ubtu22cis_telnet_required: true
+    ubtu22cis_time_sync_tool: ntp
+    ubtu22cis_rule_1_1_2_1: false
+    ubtu22cis_rule_1_1_2_2: false
+    ubtu22cis_rule_1_1_2_3: false
+  roles:
+    - common
+    - UBUNTU22-CIS
