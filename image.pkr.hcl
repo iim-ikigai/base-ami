@@ -38,6 +38,7 @@ build {
 
   provisioner "ansible" {
     playbook_file     = "ansible/playbook-test.yaml"
+    galaxy_file       = "ansible/requirements.yaml"
   }
 
   provisioner "shell" {
