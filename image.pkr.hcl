@@ -34,16 +34,6 @@ build {
       "echo \"FOO is $FOO\" > example.txt",
     ]
   }
-  provisioner "shell" {
-    script =  "scripts/install-python.sh"
-  }
-
-  provisioner "ansible" {
-    playbook_file = "ansible/playbook-test.yaml"
-    galaxy_file   = "ansible/requirements.yaml"
-  }
-
- 
 
   post-processor "docker-tag" {
     repository = "learn-packer"
