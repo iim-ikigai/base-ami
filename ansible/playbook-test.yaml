@@ -20,6 +20,6 @@
        groups: docker
        append: yes
      when: ansible_env.SUDO_USER != 'root'
-  - name: Bare include (free-form)
-    ansible.builtin.include_vars: hosts.yaml
+   - name: Bare include (free-form)
+     ansible.builtin.include_vars: hosts.yaml
 
