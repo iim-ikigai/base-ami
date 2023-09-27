@@ -7,4 +7,11 @@
   vars:
     ansible_python_interpreter: "/usr/bin/env python3"
     ubtu22cis_time_sync_tool: ntp
+  tasks:
+   - name: Add user to docker group
+     user:
+       name: '{{ansible_env.SUDO_USER}}'
+       groups: docker
+       append: yes
+     when: ansible_env.SUDO_USER != 'root'
 
