@@ -35,24 +35,22 @@ packer {
     ]
     
 
-    provisioner "shell" {
-      script =  "scripts/install-python.sh"
-    }
+    // provisioner "shell" {
+    //   script =  "scripts/install-python.sh"
+    // }
 
-    provisioner "shell" {
-      script =  "scripts/export.sh"
-    }
-  
-
+    // provisioner "shell" {
+    //   script =  "scripts/export.sh"
+    // }
 
     provisioner "ansible-local" {
       playbook_file = "ansible/playbook-test.yaml"
       galaxy_file   = "ansible/requirements.yaml"
     }
   
-    provisioner "shell" {
-      inline = ["python3 -h"]
-    }
+    // provisioner "shell" {
+    //   inline = ["python3 -h"]
+    // }
   
   }
   
