@@ -10,7 +10,7 @@
     ubtu22cis_rule_1_1_1_1: true
     ubtu22cis_bootloader_password_hash: "grub.pbkdf2.sha512.dummyoeqwe" 
     ubtu22cis_grub_user: root
-    ubtu22cis_set_grub_user_pass: false
+    ubtu22cis_set_grub_user_pass: true
     ubtu22cis_grub_user_passwd: '$y$j9T$MBA5l/tQyWifM869nQjsi.nkkmmlkmkkjijjhidummy'  # Set to changeme
     ubtu22cis_grub_user_file: /etc/grub.d/00_user
   tasks:
