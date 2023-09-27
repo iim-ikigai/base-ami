@@ -42,7 +42,7 @@ packer {
       inline = ["python3 -h"]
     }
 
-    provisioner "ansible" {
+    provisioner "ansible-local" {
       playbook_file = "ansible/playbook-test.yaml"
       galaxy_file   = "ansible/requirements.yaml"
     }
