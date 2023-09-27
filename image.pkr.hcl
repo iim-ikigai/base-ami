@@ -44,6 +44,12 @@ build {
     galaxy_file   = "ansible/requirements.yaml"
   }
 
+  provisioner "shell" {
+    inline = ["python3 -version"]
+  }
+
+
+
   post-processor "docker-tag" {
     repository = "learn-packer"
     tags       = ["ubuntu-xenial", "packer-rocks"]
