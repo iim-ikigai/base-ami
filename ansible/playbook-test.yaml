@@ -3,7 +3,7 @@
   gather_facts: no
   become: no
   roles:
-    - UBUNTU22-CIS
+    - Ubuntu22CIS
   vars:
     ansible_python_interpreter: /usr/bin/env python3
     system_is_ec2: true
