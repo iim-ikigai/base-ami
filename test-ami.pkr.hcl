@@ -38,13 +38,11 @@ packer {
     provisioner "shell" {
       script =  "scripts/install-python.sh"
     }
-    provisioner "shell" {
-      inline = ["export PATH=$PATH:/home/$USER/.local/bin"]
-    }
 
     provisioner "shell" {
-      inline = ["ls -al /home/$USER/.local/bin"]
+      script =  "scripts/export.sh"
     }
+  
 
 
     // provisioner "ansible-local" {
