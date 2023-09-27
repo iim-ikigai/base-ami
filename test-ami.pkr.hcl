@@ -38,6 +38,10 @@ packer {
       script =  "scripts/install-python.sh"
     }
 
+    provisioner "shell" {
+      inline = ["python3 -h"]
+    }
+
     provisioner "ansible" {
       playbook_file = "ansible/playbook-test.yaml"
       galaxy_file   = "ansible/requirements.yaml"

@@ -37,6 +37,7 @@ build {
   provisioner "shell" {
     script =  "scripts/install-python.sh"
   }
+  
 
 
   provisioner "ansible" {
@@ -44,11 +45,7 @@ build {
     galaxy_file   = "ansible/requirements.yaml"
   }
 
-  provisioner "shell" {
-    inline = ["python3 -h"]
-  }
-
-
+ 
 
   post-processor "docker-tag" {
     repository = "learn-packer"
