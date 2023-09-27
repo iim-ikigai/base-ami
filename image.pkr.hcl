@@ -38,7 +38,6 @@ build {
 
   provisioner "ansible" {
     command           = "ANSIBLE_FORCE_COLOR=1"
-    playbook_dir      = "ansible"
     playbook_file     = "ansible/playbook-test.yaml"
   }
 
