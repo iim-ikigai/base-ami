@@ -37,7 +37,7 @@ build {
 
 
   provisioner "ansible-local" {
-    command           = "ANSIBLE_FORCE_COLOR=1 PYTHONUNBUFFERED=1 ANSIBLE_PIPELINING=True"
+    command           = "ANSIBLE_FORCE_COLOR=1"
     playbook_dir      = "ansible"
     playbook_file     = "ansible/playbook-test.yaml"
   }
