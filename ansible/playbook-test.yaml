@@ -13,8 +13,6 @@
     ubtu22cis_set_grub_user_pass: true
     ubtu22cis_grub_user_passwd: '$y$j9T$MBA5l/tQyWifM869nQjsi.nkkmmlkmkkjijjhidummy'  # Set to changeme
     ubtu22cis_grub_user_file: /etc/grub.d/00_user
-  vars_files:
-    - ansible/hosts.yml
   tasks:
    - name: Add user to docker group
      user:
@@ -22,4 +20,6 @@
        groups: docker
        append: yes
      when: ansible_env.SUDO_USER != 'root'
+  - name: Bare include (free-form)
+    ansible.builtin.include_vars: hosts.yaml
 
