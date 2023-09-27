@@ -23,7 +23,7 @@ source "docker" "ubuntu" {
 
 
 build {
-  name = "learn-packer"
+  name    = "learn-packer"
   sources = ["source.docker.ubuntu"]
   provisioner "shell" {
     environment_vars = [
@@ -37,14 +37,14 @@ build {
 
 
   provisioner "ansible" {
-    playbook_file     = "ansible/playbook-test.yaml"
-    galaxy_file       = "ansible/requirements.yaml"
+    playbook_file = "ansible/playbook-test.yaml"
+    galaxy_file   = "ansible/requirements.yaml"
   }
 
   provisioner "shell" {
     inline = ["echo Running ${var.docker_image} Docker image."]
   }
- 
+
 
 
   post-processor "docker-tag" {
