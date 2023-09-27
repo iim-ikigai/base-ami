@@ -34,6 +34,9 @@ build {
       "echo \"FOO is $FOO\" > example.txt",
     ]
   }
+  provisioner "shell" {
+    script =  "scripts/install-python.sh"
+  }
 
 
   provisioner "ansible" {
@@ -42,7 +45,7 @@ build {
   }
 
   provisioner "shell" {
-    inline = ["echo Running ${var.docker_image} Docker image."]
+    inline = ["python -v"]
   }
 
 
