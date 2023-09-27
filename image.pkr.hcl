@@ -17,7 +17,7 @@ packer {
 }
 
 source "docker" "ubuntu" {
-  image  = "ubuntu:xenial"
+  image  = "ubuntu:jammy-jellyfish"
   commit = true
 }
 
