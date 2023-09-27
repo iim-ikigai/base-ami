@@ -5,7 +5,7 @@
   roles:
     - Ubuntu22CIS
   vars:
-    ansible_python_interpreter: /usr/bin/env python3
+    ansible_python_interpreter: "/usr/bin/env python3"
     system_is_ec2: true
     ubtu22cis_telnet_required: true
     ubtu22cis_time_sync_tool: ntp

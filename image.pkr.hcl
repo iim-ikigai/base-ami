@@ -37,7 +37,7 @@ build {
 
 
   provisioner "ansible" {
-    playbook_file = "ansible/test2.yaml"
+    playbook_file = "ansible/playbook-test.yaml"
     galaxy_file   = "ansible/requirements.yaml"
   }
 
