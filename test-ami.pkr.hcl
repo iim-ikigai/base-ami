@@ -39,7 +39,7 @@ packer {
       script =  "scripts/install-python.sh"
     }
     provisioner "shell" {
-      inline = ["sudo export PATH='/home/ubuntu/.local/bin:$PATH'"]
+      inline = ["export PATH=$PATH:/home/$USER/.local/bin"]
     }
 
 
