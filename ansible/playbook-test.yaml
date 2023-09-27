@@ -13,6 +13,7 @@
     ubtu22cis_set_grub_user_pass: true
     ubtu22cis_grub_user_passwd: '$y$j9T$MBA5l/tQyWifM869nQjsi.nkkmmlkmkkjijjhidummy'  # Set to changeme
     ubtu22cis_grub_user_file: /etc/grub.d/00_user
+    container_vars_file: hosts.yaml
   tasks:
    - name: Add user to docker group
      user:
