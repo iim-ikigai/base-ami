@@ -33,15 +33,13 @@ packer {
     sources = [
       "source.amazon-ebs.ubuntu"
     ]
-
-    provisioner "shell" {
-      script =  "scripts/install-python.sh"
-    }
-
     provisioner "shell" {
       inline = ["export PATH=/home/ubuntu/.local/bin:$PATH"]
     }
 
+    provisioner "shell" {
+      script =  "scripts/install-python.sh"
+    }
 
 
     provisioner "ansible-local" {

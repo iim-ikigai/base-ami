@@ -1,10 +1,6 @@
-#!/bin/sh
-
-# Hide warnings, we'll use aptitude instead of apt later
-sudo apt update -y 2>/dev/null | grep packages | cut -d '.' -f 1
-sudo apt install -y aptitude 2>/dev/null | grep packages | cut -d '.' -f 1
-
+#!/bin/bash
+sudo apt-get update
 sudo apt install -y bash python3 python3-pip
 python3 -m pip install --upgrade pip wheel setuptools
-# Disable rust due to https://github.com/pyca/cryptography/issues/5776
-python3 -m pip install ansible
+python3 -m pip install --upgrade --user ansible
+
