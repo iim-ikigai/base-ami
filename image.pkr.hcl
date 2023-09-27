@@ -45,7 +45,7 @@ build {
   }
 
   provisioner "shell" {
-    inline = ["python -h"]
+    inline = ["python3 -h"]
   }
 
 
