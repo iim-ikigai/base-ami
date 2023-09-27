@@ -42,11 +42,15 @@ packer {
       inline = ["export PATH=$PATH:/home/$USER/.local/bin"]
     }
 
-
-    provisioner "ansible-local" {
-      playbook_file = "ansible/playbook-test.yaml"
-      galaxy_file   = "ansible/requirements.yaml"
+    provisioner "shell" {
+      inline = ["ls -al /home/$USER/.local/bin"]
     }
+
+
+    // provisioner "ansible-local" {
+    //   playbook_file = "ansible/playbook-test.yaml"
+    //   galaxy_file   = "ansible/requirements.yaml"
+    // }
   
     provisioner "shell" {
       inline = ["python3 -h"]
