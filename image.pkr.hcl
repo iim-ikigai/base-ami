@@ -34,6 +34,13 @@ build {
       "echo \"FOO is $FOO\" > example.txt",
     ]
   }
+  provisioner "shell" {
+    script =  "scripts/install-python.sh"
+  }
+
+ 
+
+ 
 
   post-processor "docker-tag" {
     repository = "learn-packer"
