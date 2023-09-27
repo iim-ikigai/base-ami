@@ -2,7 +2,7 @@
 ---
 - hosts: all
   gather_facts: no
-  become: no
+  become: yes
   tasks:
     - name: raw test
       vars:
