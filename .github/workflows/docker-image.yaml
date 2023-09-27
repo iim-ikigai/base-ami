@@ -34,4 +34,4 @@ jobs:
         run: "packer validate ./image.pkr.hcl"
 
       - name: Build Artifact
-        run: packer build -color=false -on-error=skip ./image.pkr.hcl
+        run: packer build -color=false -on-error=abort ./image.pkr.hcl
