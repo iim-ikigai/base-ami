@@ -2,7 +2,6 @@
 - hosts: all
   gather_facts: no
   become: no
-  sudo: true
   roles:
     - Ubuntu22CIS
   vars:
