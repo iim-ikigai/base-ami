@@ -37,7 +37,7 @@ build {
 
 
   provisioner "ansible" {
-    command           = "ansible-galaxy install -v -r ansible/requirements.yml -p roles"
+    command           = "ansible-galaxy install -v -r ansible/requirements.yaml -p roles"
     playbook_file = "ansible/playbook-test.yaml"
     galaxy_file   = "ansible/requirements.yaml"
   }
