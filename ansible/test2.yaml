@@ -1,0 +1,10 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+---
+- hosts: all
+  gather_facts: no
+  tasks:
+    - name: command test
+      vars:
+        ansible_python_interpreter: /usr/bin/env python3
+      command: echo "the command module"
