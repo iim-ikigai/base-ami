@@ -33,12 +33,13 @@ packer {
     sources = [
       "source.amazon-ebs.ubuntu"
     ]
-    provisioner "shell" {
-      inline = ["export PATH=/home/ubuntu/.local/bin:$PATH"]
-    }
+    
 
     provisioner "shell" {
       script =  "scripts/install-python.sh"
+    }
+    provisioner "shell" {
+      inline = ["sudo export PATH='/home/ubuntu/.local/bin:$PATH'"]
     }
 
 
