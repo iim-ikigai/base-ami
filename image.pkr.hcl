@@ -1,6 +1,6 @@
 variable "docker_image" {
   type    = string
-  default = "ubuntu:jammy"
+  default = "ubuntu:xenial"
 }
 
 packer {
@@ -17,7 +17,7 @@ packer {
 }
 
 source "docker" "ubuntu" {
-  image  = "ubuntu:jammy"
+  image  = "ubuntu:xenial"
   commit = true
 }
 
