@@ -6,7 +6,6 @@
     - Ubuntu22CIS
   vars:
     ansible_python_interpreter: "/usr/bin/env python3"
-    ubtu22cis_time_sync_tool: ntp
   tasks:
    - name: Add user to docker group
      user:
