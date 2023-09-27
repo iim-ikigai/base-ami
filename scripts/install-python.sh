@@ -1,3 +1,3 @@
 #!/bin/bash
 apt-get update
-apt install -y python
+apt install -y python3
