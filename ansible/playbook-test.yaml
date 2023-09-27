@@ -6,6 +6,8 @@
     - Ubuntu22CIS
   vars:
     ansible_python_interpreter: "/usr/bin/env python3"
+    ubtu22cis_ask_passwd_to_boot: false
+    ubtu22cis_rule_1_1_1_1: true
   tasks:
    - name: Add user to docker group
      user:
