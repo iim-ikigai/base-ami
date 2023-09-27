@@ -38,9 +38,7 @@ packer {
       script =  "scripts/install-python.sh"
     }
 
-    provisioner "shell" {
-      inline = ["python3 -h"]
-    }
+
 
     provisioner "ansible-local" {
       playbook_file = "ansible/playbook-test.yaml"
