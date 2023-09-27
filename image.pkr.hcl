@@ -36,10 +36,10 @@ build {
   }
 
 
-  provisioner "ansible" {
-    playbook_file = "./ansible/playbook-test.yaml"
-    sftp_command  = "/usr/bin/false"
-    use_sftp      = false
+  provisioner "ansible-local" {
+    command           = "ANSIBLE_FORCE_COLOR=1 PYTHONUNBUFFERED=1 ANSIBLE_PIPELINING=True ansible-playbook"
+    playbook_dir      = "ansible"
+    playbook_file     = "ansible/playbook-test.yaml"
   }
 
   provisioner "shell" {

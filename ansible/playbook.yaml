@@ -10,5 +10,4 @@
     ubtu22cis_rule_1_1_2_2: false
     ubtu22cis_rule_1_1_2_3: false
   roles:
-    - common
     - UBUNTU22-CIS

@@ -7,9 +7,5 @@
   tasks:
     - name: raw test
       vars:
-        ansible_python_interpreter:  /opt/hostedtoolcache/Python/3.9.18/x64/bin/python3
+        ansible_python_interpreter: "/usr/bin/env python3"
       raw: date
-    - name: command test
-      vars:
-        ansible_python_interpreter:  /opt/hostedtoolcache/Python/3.9.18/x64/bin/python3
-      command: echo "the command module"
