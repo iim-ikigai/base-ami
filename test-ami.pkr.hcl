@@ -12,7 +12,7 @@ packer {
   }
   
   source "amazon-ebs" "ubuntu" {
-    ami_name      = "learn-packer-linux-aws"
+    ami_name      = "learn-packer-linux-aws-2"
     instance_type = "t2.micro"
     region        = "us-west-2"
     source_ami_filter {
@@ -29,7 +29,7 @@ packer {
   }
   
   build {
-    name    = "learn-packer"
+    name    = "learn-packer-2"
     sources = [
       "source.amazon-ebs.ubuntu"
     ]
@@ -45,10 +45,10 @@ packer {
   
 
 
-    // provisioner "ansible-local" {
-    //   playbook_file = "ansible/playbook-test.yaml"
-    //   galaxy_file   = "ansible/requirements.yaml"
-    // }
+    provisioner "ansible-local" {
+      playbook_file = "ansible/playbook-test.yaml"
+      galaxy_file   = "ansible/requirements.yaml"
+    }
   
     provisioner "shell" {
       inline = ["python3 -h"]
