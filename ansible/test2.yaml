@@ -1,15 +1,11 @@
-# Copyright (c) HashiCorp, Inc.
-# SPDX-License-Identifier: MPL-2.0
+
 ---
 - hosts: all
   gather_facts: no
-  pre_tasks:
-    - name: install python
-      raw: 'cat < sripts/pre-work.sh'
-      args:
-        executable: /bin/bash
+  gather_facts: true    
+  become: yes
   tasks:
-    - name: command test
+    - name: raw test
       vars:
-        ansible_python_interpreter: /usr/bin/env python3
-      command: echo "the command module"
+        ansible_python_interpreter: "/usr/bin/env python3"
+      raw: date
