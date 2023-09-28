@@ -39,6 +39,9 @@ packer {
     sources = [ "source.amazon-ebs.ubuntu" ]
     
     provisioner "shell" {
+      script =  "scripts/export.sh"
+    }
+    provisioner "shell" {
       environment_vars = [
         "FOO=hello world",
         "TZ=Etc/UTC",
