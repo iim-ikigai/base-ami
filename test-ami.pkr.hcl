@@ -67,11 +67,11 @@ packer {
       script =  "scripts/export.sh"
       timeout      = "60s"
     }
-    provisioner "ansible" {
-      playbook_file = "ansible/playbook.yaml"
-      galaxy_file   = "ansible/requirements.yaml"
-      timeout      = "60s"
-    }
+    // provisioner "ansible" {
+    //   playbook_file = "ansible/playbook.yaml"
+    //   galaxy_file   = "ansible/requirements.yaml"
+    //   timeout      = "60s"
+    // }
   
     // provisioner "shell" {
     //   inline = ["python3 -h"]
