@@ -1,8 +1,7 @@
 ---
 - hosts: all
   gather_facts: no
-  become: yes
-  become_method: sudo
+  become: no
   roles:
     - Ubuntu22CIS
   vars_files:
@@ -17,12 +16,9 @@
     ubtu22cis_grub_user_file: /etc/grub.d/00_user
     container_vars_file: hosts.yaml
   tasks:
-   - name: Add user to docker group
-     user:
-       name: '{{ansible_env.SUDO_USER}}'
-       groups: docker
-       append: yes
-     when: ansible_env.SUDO_USER != 'root'
-   - name: Bare include (free-form)
-     ansible.builtin.include_vars: hosts.yaml
+   - name: print to stdout
+    command: whoami
+    register: hello
+
+   - debug: msg="{{ hello.stdout }}"
 
