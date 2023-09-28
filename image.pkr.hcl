@@ -32,7 +32,8 @@ build {
   provisioner "shell" {
     environment_vars = [
       "FOO=hello world",
-      "TZ=Etc/UTC"
+      "TZ=Etc/UTC",
+      "section2=true"
     ]
     inline = [
       "echo Adding file to Docker Container",
