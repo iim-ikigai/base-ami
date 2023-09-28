@@ -11,10 +11,6 @@ packer {
     }
   }
 
-  variable "ami_name" {
-    type    = string
-    default = "${env("AMI_NAME")}"
-  }
   
   
   source "amazon-ebs" "ubuntu" {
