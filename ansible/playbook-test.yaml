@@ -17,8 +17,8 @@
     container_vars_file: hosts.yaml
   tasks:
    - name: print to stdout
-    command: whoami
-    register: hello
+     command: whoami
+     register: hello
 
    - debug: msg="{{ hello.stdout }}"
 
