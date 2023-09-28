@@ -38,9 +38,7 @@ packer {
     name    = "learn-packer-2"
     sources = [ "source.amazon-ebs.ubuntu" ]
     
-    provisioner "shell" {
-      script =  "scripts/export.sh"
-    }
+    
     provisioner "shell" {
       environment_vars = [
         "FOO=hello world",
@@ -59,8 +57,10 @@ packer {
       script =  "scripts/py.sh"
     }
 
-  
-    provisioner "ansible-local" {
+    provisioner "shell" {
+      script =  "scripts/export.sh"
+    }
+    provisioner "ansible" {
       playbook_file = "ansible/playbook-test.yaml"
       galaxy_file   = "ansible/requirements.yaml"
     }
