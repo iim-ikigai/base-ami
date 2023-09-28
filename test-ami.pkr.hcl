@@ -17,6 +17,8 @@ packer {
     ami_name      = "learn-packer-linux-aws-2"
     instance_type = "t2.micro"
     region        = "us-west-2"
+    ena_support   = true
+    encrypt_boot  = false
     source_ami_filter {
       filters = {
         architecture        = "x86_64"
