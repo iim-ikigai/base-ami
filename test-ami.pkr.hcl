@@ -43,8 +43,6 @@ packer {
       ]
       timeout      = "60s"
     }
-    
-    "inline": ""
     provisioner "shell" {
       environment_vars = [
         "FOO=hello world",
