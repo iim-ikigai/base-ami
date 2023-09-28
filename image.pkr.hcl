@@ -3,6 +3,11 @@ variable "docker_image" {
   default = "ubuntu:jammy"
 }
 
+variable "ami_name" {
+  type    = string
+  default = "${env("AMI_NAME")}"
+}
+
 packer {
   required_plugins {
     docker = {
@@ -33,7 +38,8 @@ build {
     environment_vars = [
       "FOO=hello world",
       "TZ=Etc/UTC",
-      "section2=true"
+      "section2=true",
+      "AMI_NAME=var.ami_name"
     ]
     inline = [
       "echo Adding file to Docker Container",

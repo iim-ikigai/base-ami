@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
 
 env:
-  PRODUCT_VERSION: "1.8.6" # or: "latest"      
+  PRODUCT_VERSION: "1.8.6" # or: "latest"     
+  AMI_NAME: "TEST" 
 
 jobs:
   packer:
