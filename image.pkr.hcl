@@ -45,6 +45,7 @@ build {
       "echo Adding file to Docker Container",
       "echo \"FOO is $FOO\" > example.txt",
       "printenv",
+      "whoami"
     ]
   }
 
@@ -53,11 +54,7 @@ build {
     script =  "scripts/install-python.sh"
   }
 
-  provisioner "ansible" {
-    playbook_file = "ansible/playbook-test.yaml"
-    galaxy_file   = "ansible/requirements.yaml"
-  }
-
+  
  
 
   post-processor "docker-tag" {
