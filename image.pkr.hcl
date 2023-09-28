@@ -25,6 +25,10 @@ source "docker" "ubuntu" {
 build {
   name    = "learn-packer"
   sources = ["source.docker.ubuntu"]
+
+  provisioner "shell" {
+    script =  "scripts/export.sh"
+  }
   provisioner "shell" {
     environment_vars = [
       "FOO=hello world",
@@ -32,12 +36,11 @@ build {
     inline = [
       "echo Adding file to Docker Container",
       "echo \"FOO is $FOO\" > example.txt",
+      "printenv",
     ]
   }
 
-  provisioner "shell" {
-    script =  "scripts/export.sh"
-  }
+  
   provisioner "shell" {
     script =  "scripts/install-python.sh"
   }
