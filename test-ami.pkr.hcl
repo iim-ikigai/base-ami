@@ -10,6 +10,12 @@ packer {
       }
     }
   }
+
+  variable "ami_name" {
+    type    = string
+    default = "${env("AMI_NAME")}"
+  }
+  
   
   source "amazon-ebs" "ubuntu" {
     ami_name      = "learn-packer-linux-aws-2"
@@ -30,9 +36,7 @@ packer {
   
   build {
     name    = "learn-packer-2"
-    sources = [
-      "source.amazon-ebs.ubuntu"
-    ]
+    sources = [ "source.amazon-ebs.ubuntu" ]
     
     provisioner "shell" {
       environment_vars = [
