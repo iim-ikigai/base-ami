@@ -55,22 +55,22 @@ packer {
         "echo \"FOO is $FOO\" > example.txt",
         "printenv",
       ]
-      timeout      = "600s"
+      timeout      = "6000s"
     }
 
     provisioner "shell" {
       script =  "scripts/py.sh"
-      timeout      = "600s"
+      timeout      = "6000s"
     }
 
     provisioner "shell" {
       script =  "scripts/export.sh"
-      timeout      = "600s"
+      timeout      = "6000s"
     }
     provisioner "ansible" {
       playbook_file = "ansible/playbook.yaml"
       galaxy_file   = "ansible/requirements.yaml"
-      timeout      = "600s"
+      timeout      = "6000s"
     }
   
     // provisioner "shell" {
