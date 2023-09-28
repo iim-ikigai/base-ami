@@ -2,7 +2,7 @@
 - hosts: all
   gather_facts: no
   become: yes
-  become_method: su
+  become_method: sudo
   roles:
     - Ubuntu22CIS
   vars_files:
