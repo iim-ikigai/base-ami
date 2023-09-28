@@ -19,7 +19,7 @@ packer {
   
   source "amazon-ebs" "ubuntu" {
     ami_name      = "learn-packer-linux-aws-2"
-    instance_type = "t1.micro"
+    instance_type = "t2.micro"
     region        = "us-west-2"
     source_ami_filter {
       filters = {
