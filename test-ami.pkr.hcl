@@ -37,8 +37,14 @@ packer {
   build {
     name    = "learn-packer-2"
     sources = [ "source.amazon-ebs.ubuntu" ]
+    provisioner "shell" {
+      inline = [
+        "while [ ! -f /var/lib/cloud/instance/boot-finished ]; do echo 'Waiting for cloud-init...'; sleep 1; done"
+      ]
+      timeout      = "60s"
+    }
     
-    
+    "inline": ""
     provisioner "shell" {
       environment_vars = [
         "FOO=hello world",
