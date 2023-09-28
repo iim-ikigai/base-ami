@@ -34,10 +34,23 @@ packer {
       "source.amazon-ebs.ubuntu"
     ]
     
+    provisioner "shell" {
+      environment_vars = [
+        "FOO=hello world",
+        "TZ=Etc/UTC",
+        "section2=true",
+        "AMI_NAME=${var.ami_name}"
+      ]
+      inline = [
+        "echo Adding file to Docker Container",
+        "echo \"FOO is $FOO\" > example.txt",
+        "printenv",
+      ]
+    }
 
-    // provisioner "shell" {
-    //   script =  "scripts/install-python.sh"
-    // }
+    provisioner "shell" {
+      script =  "scripts/install-python.sh"
+    }
 
     // provisioner "shell" {
     //   script =  "scripts/export.sh"
