@@ -17,6 +17,7 @@
     ubtu22cis_rule_2_1_1_1: "{{ lookup('env','section2') }}"
     ubtu22cis_rule_2_1_4_1: false
     ubtu22cis_rule_2_1_4_2: "{{ lookup('env','section2') }}"
+    ubtu22cis_rule_2_1_4_3: "{{ lookup('env','section2') }}"
     ubuntu22cis_section2: false
   tasks:
    - name: Add user to docker group
