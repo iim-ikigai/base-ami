@@ -4,6 +4,8 @@
   become: no
   roles:
     - Ubuntu22CIS
+  vars_files:
+    - rule_vars.yaml
   vars:
     ansible_python_interpreter: "/usr/bin/env python3"
     ubtu22cis_ask_passwd_to_boot: false
@@ -13,12 +15,6 @@
     ubtu22cis_grub_user_passwd: '$y$j9T$MBA5l/tQyWifM869nQjsi.nkkmmlkmkkjijjhidummy'  # Set to changeme
     ubtu22cis_grub_user_file: /etc/grub.d/00_user
     container_vars_file: hosts.yaml
-    ubtu22cis_rule_1_1_1_1: true
-    ubtu22cis_rule_2_1_1_1: "{{ lookup('env','section2') }}"
-    ubtu22cis_rule_2_1_4_1: false
-    ubtu22cis_rule_2_1_4_2: "{{ lookup('env','section2') }}"
-    ubtu22cis_rule_2_1_4_3: "{{ lookup('env','section2') }}"
-    ubuntu22cis_section2: false
   tasks:
    - name: Add user to docker group
      user:
