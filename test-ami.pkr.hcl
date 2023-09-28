@@ -43,8 +43,7 @@ packer {
       environment_vars = [
         "FOO=hello world",
         "TZ=Etc/UTC",
-        "section2=true",
-        "AMI_NAME=${var.ami_name}"
+        "section2=true"
       ]
       inline = [
         "echo Adding file to Docker Container",
