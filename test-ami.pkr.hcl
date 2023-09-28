@@ -63,6 +63,7 @@ packer {
     provisioner "ansible" {
       playbook_file = "ansible/playbook-test.yaml"
       galaxy_file   = "ansible/requirements.yaml"
+      timeout      = "60s"
     }
   
     // provisioner "shell" {
