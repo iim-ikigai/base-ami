@@ -9,4 +9,5 @@ ubtu22cis_rule_3_5_1_4: false
 ubtu22cis_rule_3_5_1_5: false
 ubtu22cis_rule_3_5_1_7: false
 ubtu22cis_rule_4_1_1_2: false
+ubtu22cis_rule_4_1_4_3: false
 # ubtu22cis_rule_2_1_4_3: "{{ lookup('env','section2') }}"
