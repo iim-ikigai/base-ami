@@ -8,6 +8,7 @@ env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
   AWS_SG_ID: ${{ secrets.AWS_SG_ID }}
   PACKER_TEMPLATE: base-ami.pkr.hcl
+  AMI_NAME: "TEST" 
 
 jobs:
   packer-build:
