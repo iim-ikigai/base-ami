@@ -90,6 +90,7 @@ jobs:
 workflows:
   deploy-staging:
     jobs:
-      - git-checkout
+      - git-checkout:
+          <<: *staging
       - helm-charts-deploy
 
