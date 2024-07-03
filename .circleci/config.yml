@@ -28,6 +28,10 @@ jobs:
           root: .
           paths:
               - .
+      - run:
+          name: CHECKOUT
+          command: |
+                echo "HI";
   helm-charts-deploy:
     executor: default
     steps:
