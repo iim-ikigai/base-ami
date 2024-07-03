@@ -6,12 +6,12 @@ version: 2.1
 staging: &staging
   filters:
     branches:
-      ignore: main
+      only: main
 
 production: &production
   filters:
     branches:
-      only: main
+      ignore: main
 orbs:
   terraform: circleci/terraform@3.2.1
 
