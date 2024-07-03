@@ -1,0 +1,92 @@
+# Couldn't automatically generate a config from your source code.
+# This is a generic template to serve as a base for your custom config
+# See: https://circleci.com/docs/configuration-reference
+# Stacks detected: cicd:github-actions:.github/workflows
+version: 2.1
+staging: &staging
+  filters:
+    branches:
+      ignore: main
+
+production: &production
+  filters:
+    branches:
+      only: main
+orbs:
+  terraform: circleci/terraform@3.2.1
+
+executors:
+  default:
+    docker:
+      - image: cimg/base:stable
+jobs:
+  git-checkout:
+    executor: default
+    steps:
+      - checkout
+      - persist_to_workspace:
+          root: .
+          paths:
+              - .
+  helm-charts-deploy:
+    executor: default
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Helm Charts Deployment
+          command: |
+                echo "HELM CHART DEPLOY";
+  terraform-fmt:
+    parameters:
+      path:
+        type: string
+        default: terraform/environment
+      sub-path:
+        type: string
+        default: stg
+    executor: default
+    steps:
+      - attach_workspace:
+          at: .
+      - terraform/fmt:
+          path:  << parameters.path >>/<< parameters.sub-path >>
+  
+  terraform-plan:
+    parameters:
+      path:
+        type: string
+        default: terraform/environment
+      sub-path:
+        type: string
+        default: stg
+    executor: default
+    steps:
+      - attach_workspace:
+          at: .
+      - terraform/plan:
+          path:  << parameters.path >>/<< parameters.sub-path >>
+
+  helmfile-deploy:
+    executor: default
+    parameters: # parameters are at the job level
+      cluster_name:
+        type: string
+        default: multisteps-k8s-prod-1-cluster
+      build_env:
+        type: string
+        default: stg
+      helmfile_path:
+        type: string
+        default: apps/website
+    steps:
+      - attach_workspace:
+          at: .
+
+workflows:
+  deploy-staging:
+    jobs:
+      - git-checkout:
+          <<: *staging
+      - helm-charts-deploy:
+
