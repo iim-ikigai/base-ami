@@ -88,5 +88,5 @@ workflows:
     jobs:
       - git-checkout:
           <<: *staging
-      - helm-charts-deploy:
+      - helm-charts-deploy
 
